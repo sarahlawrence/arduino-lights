@@ -1,5 +1,6 @@
 const int ledAlpha = 3; // currently red
 const int ledBeta = 6; // currently blue
+
 const int slowInterval = 500;
 const int midInterval = 250;
 const int fastInterval = 100;
@@ -13,28 +14,27 @@ void setup() {
 }
 
 void loop() {
+  // turn light on then delay before next light
   digitalWrite(LED_BUILTIN, HIGH);
+  delay(midInterval);
+
   digitalWrite(ledAlpha, HIGH);
-  digitalWrite(ledBeta, LOW);
-  delay(100);
+  delay(fastInterval);
 
-  digitalWrite(LED_BUILTIN, HIGH);
-  digitalWrite(ledAlpha, LOW);
   digitalWrite(ledBeta, HIGH);
-  delay(100);
+  delay(slowInterval);
 
-  digitalWrite(LED_BUILTIN, LOW);
-  digitalWrite(ledAlpha, HIGH);
-  digitalWrite(ledBeta, HIGH);
-  delay(100);
+  // turn all lights off at end of loop
+  if (digitalRead(LED_BUILTIN, HIGH)) {
+    digitalWrite(LED_BUILTIN, LOW);
+  }
 
-  digitalWrite(LED_BUILTIN, HIGH);
-  digitalWrite(ledAlpha, LOW);
-  digitalWrite(ledBeta, LOW);
-  delay(100);
-  
-  digitalWrite(LED_BUILTIN, LOW);
-  digitalWrite(ledAlpha, LOW);
-  digitalWrite(ledBeta, HIGH);
-  delay(100);
+  if (digitalRead(ledAlpha, HIGH)) {
+    digitalWrite(ledAlpha, LOW);
+  }
+
+  if (digitalRead(ledBeta, HIGH)) {
+    digitalWrite(ledBeta, LOW);
+  }
+
 }
