@@ -24,7 +24,7 @@ void loop() {
   // choose a random delay amount
   int randomDelay = rand() % 3;
   int selectedDelay = delayArray[randomLED];
-  
+
 
   // turn on selected LED for selected delay
   digitalWrite(selectedLED, HIGH);
@@ -33,16 +33,8 @@ void loop() {
 
 
   // turn all lights off at end of loop
-  if (digitalRead(LED_BUILTIN) == HIGH) {
-    digitalWrite(LED_BUILTIN, LOW);
-  }
-
-  if (digitalRead(ledAlpha) == HIGH) {
-    digitalWrite(ledAlpha, LOW);
-  }
-
-  if (digitalRead(ledBravo) == HIGH) {
-    digitalWrite(ledBravo, LOW);
-  }
+  digitalWrite(ledAlpha, LOW);
+  digitalWrite(ledBravo, LOW);
+  digitalWrite(ledCharlie, LOW);
 
 }
