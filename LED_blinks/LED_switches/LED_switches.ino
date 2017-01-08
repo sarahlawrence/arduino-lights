@@ -6,13 +6,11 @@ void setup() {
 }
 
 void loop() {
-
   if(digitalRead(switchPosition)) {
-    toggle(ledPosition);  
+    toggle(ledPosition);
   }
 
-
-  // do we need to debounce ?
+  //TODO: make it persist the state.
 }
 
 
