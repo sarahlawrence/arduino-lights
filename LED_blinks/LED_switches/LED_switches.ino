@@ -7,8 +7,10 @@ void setup() {
 
 void loop() {
 
-  //TODO: when button is pressed
-  toggle(ledPosition);
+  if(digitalRead(switchPosition)) {
+    toggle(ledPosition);  
+  }
+
 
   // do we need to debounce ?
 }
