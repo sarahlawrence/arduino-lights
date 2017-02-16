@@ -2,17 +2,15 @@ const int ledPosition = 13;
 const int switchPosition = 6;
 
 void setup() {
+  pinMode(switchPosition, INPUT);
   pinMode(ledPosition, OUTPUT);
 }
 
 void loop() {
-  if(digitalRead(switchPosition)) {
+  if (digitalRead(switchPosition) == HIGH) {
     toggle(ledPosition);
   }
-
-  //TODO: make it persist the state.
 }
-
 
 void toggle(int led) {
   if (digitalRead(led) == HIGH) {
