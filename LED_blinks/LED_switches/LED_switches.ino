@@ -1,21 +1,17 @@
-const int ledPosition = 13;
-const int switchPosition = 6;
+const int ledPosition = 12;
+const int switchPosition = 4;
 
 void setup() {
-  pinMode(switchPosition, INPUT);
   pinMode(ledPosition, OUTPUT);
+  pinMode(switchPosition, INPUT);
 }
 
 void loop() {
   if (digitalRead(switchPosition) == HIGH) {
-    toggle(ledPosition);
+    digitalWrite(ledPosition, HIGH);
+  } else {
+    digitalWrite(ledPosition, LOW);
   }
 }
 
-void toggle(int led) {
-  if (digitalRead(led) == HIGH) {
-    digitalWrite(led, LOW);
-  } else {
-    digitalWrite(led, HIGH);
-  }
-}
+
