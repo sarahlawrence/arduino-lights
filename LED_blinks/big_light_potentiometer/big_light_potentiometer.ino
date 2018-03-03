@@ -6,8 +6,6 @@
     6 |___|
         5
 
-posA0 = dot
-
 */
 
 int potPin = 2;    // select the input pin for the potentiometer
@@ -20,7 +18,6 @@ const int posD = 5;
 const int posE = 6;
 const int posF = 8;
 const int posG = 9;
-// const int dot = 9;
 
 void setup() {
   pinMode(posA, OUTPUT);
@@ -30,13 +27,12 @@ void setup() {
   pinMode(posE, OUTPUT);
   pinMode(posF, OUTPUT);
   pinMode(posG, OUTPUT);
-  // pinMode(dot, OUTPUT);
 }
 
 void loop() {
   turnOff();
   val = analogRead(potPin);
-  val = 9 * (val / 1023);
+  val = (10.0 * (val / 1023.0));
   switch (val) {
     case 1:
       one();
@@ -112,14 +108,14 @@ void three() {
 }
 
 void four() {
+  digitalWrite(posB, HIGH);
   digitalWrite(posC, HIGH);
-  digitalWrite(posD, HIGH);
-  digitalWrite(posE, HIGH);
+  digitalWrite(posF, HIGH);
   digitalWrite(posG, HIGH);
 }
 
 void five() {
-  digitalWrite(posB, HIGH);
+  digitalWrite(posA, HIGH);
   digitalWrite(posC, HIGH);
   digitalWrite(posD, HIGH);
   digitalWrite(posF, HIGH);
@@ -127,21 +123,25 @@ void five() {
 }
 
 void six() {
-  digitalWrite(posA, HIGH);
+  digitalWrite(posE, HIGH);
   five();
 }
 
 void seven() {
+  digitalWrite(posA, HIGH);
   one();
-  digitalWrite(posF, HIGH);
 }
 
 void eight() {
+  digitalWrite(posB, HIGH);
   six();
-  digitalWrite(posE, HIGH);
 }
 
 void nine() {
-  eight();
-  digitalWrite(posA, LOW);
+  digitalWrite(posA, HIGH);
+  digitalWrite(posB, HIGH);
+  digitalWrite(posC, HIGH);
+  digitalWrite(posD, HIGH);
+  digitalWrite(posF, HIGH);
+  digitalWrite(posG, HIGH);
 }
